@@ -89,7 +89,7 @@ void		print_info(t_fractol *f)
 			75, 0xffffff,
 			"Space to change constant in Julia");
 	mlx_string_put(f->mlx, f->win, 0, 90, 0xffffff,
-				   "'C' to change color");
+			"'C' to change color");
 	mlx_string_put(f->mlx, f->win, 0,
 			105, 0xffffff, "Esc - exit");
 	print_name(f);

@@ -70,8 +70,8 @@ int			mouse_move(int x, int y, t_fractol *f)
 		{
 			if (f->type == JUL && !f->pause)
 			{
-				f->ms_x = ((double) x - (double) WIDTH / 2) * 0.0008;
-				f->ms_y = ((double) y + (double) HEIGHT / 2) * 0.0008;
+				f->ms_x = ((double)x - (double)WIDTH / 2) * 0.0008;
+				f->ms_y = ((double)y + (double)HEIGHT / 2) * 0.0008;
 			}
 			else if (f->in_move)
 			{
