@@ -62,6 +62,12 @@ int			mouse_press(int key, int x, int y, t_fractol *f)
 	return (0);
 }
 
+void		set_julia(int x, int y, t_fractol *f)
+{
+	f->ms_x = ((double) x - (double) WIDTH / 2) * 0.002;
+	f->ms_y = ((double) y - (double) HEIGHT / 2) * 0.002;
+}
+
 int			mouse_move(int x, int y, t_fractol *f)
 {
 	if ((f->type == JUL && !f->pause) || f->in_move)
@@ -69,10 +75,7 @@ int			mouse_move(int x, int y, t_fractol *f)
 		if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
 		{
 			if (f->type == JUL && !f->pause)
-			{
-				f->ms_x = ((double)x - (double)WIDTH / 2) * 0.0008;
-				f->ms_y = ((double)y + (double)HEIGHT / 2) * 0.0008;
-			}
+				set_julia(x, y, f);
 			else if (f->in_move)
 			{
 				f->dx -= (x - f->m_xx) / f->zoom;
