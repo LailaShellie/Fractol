@@ -6,10 +6,10 @@
 ### Compiling
 Compile only on **OS X**
 Use `make` and run with `./fractol`
-`Mandelbrot set`
+####Mandelbrot set
 ![Example](https://github.com/LailaShellie/Fractol/blob/master/img/Mandelbrot1.png)
 ![Example](https://github.com/LailaShellie/Fractol/blob/master/img/Mandelbrot2.png)
-`Julia`
+####Julia
 ![Example](https://github.com/LailaShellie/Fractol/blob/master/img/Julia1.png)
 ![Example](https://github.com/LailaShellie/Fractol/blob/master/img/Julia2.png)
 `Burning ship`
