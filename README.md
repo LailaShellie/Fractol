@@ -12,5 +12,5 @@ Use `make` and run with `./fractol`
 #### Julia
 ![Example](https://github.com/LailaShellie/Fractol/blob/master/img/Julia1.png)
 ![Example](https://github.com/LailaShellie/Fractol/blob/master/img/Julia2.png)
-`Burning ship`
+#### Burning ship
 ![Example](https://github.com/LailaShellie/Fractol/blob/master/img/BurningShip.png)
