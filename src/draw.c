@@ -31,6 +31,8 @@ void		print_name(t_fractol *f)
 	else if (f->type == CEL_PER)
 		mlx_string_put(f->mlx, f->win, 800, 0, 0xffffff,
 				"Celtic Perpendicular");
+	else if (f->type == SPIDER)
+		mlx_string_put(f->mlx, f->win, 800, 0, 0xffffff, "Spider");
 }
 
 void		set_args(t_opcl *opcl, t_fractol *f)

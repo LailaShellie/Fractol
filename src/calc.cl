@@ -10,8 +10,7 @@
 # define CEL_MAN 6
 # define CEL_MANBAR 7
 # define CEL_PER 8
-
-# define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
+# define SPIDER 9
 
 int		set_colors(unsigned char o, unsigned char r, \
 			unsigned char g, unsigned char b)
@@ -52,14 +51,14 @@ int 		choose_color(int i, int max, color)
 	int			s = 100;
 
 	n = (double)i / (double)max;
-	if (color == 0)
+	if (color == 1)
 	{
 		red = (int)(9 * (1 - n) * pow(n, 3) * 255);
 		green = (int)(15 * pow((1 - n), 2) * pow(n, 2) * 255);
 		blue = (int)(8.5 * pow((1 - n), 3) * n * 255);
 		return (set_colors(0, red, blue, green));
 	}
-	else if (color == 1)
+	else if (color == 0)
 	{
 		red = (int)(9 * (1 - n) * pow(n, 3) * 255);
 		green = (int)(15 * pow((1 - n), 2) * pow(n, 2) * 255);
@@ -82,7 +81,8 @@ int 		choose_color(int i, int max, color)
 	}
 }
 
-__kernel void draw(__global char *data, double m_x, double m_y, double zoom, double dx, double dy, int iter, int type, double ms_x, double ms_y, int color)
+__kernel void draw(__global char *data, double m_x, double m_y, double zoom,
+		double dx, double dy, int iter, int type, double ms_x, double ms_y, int color)
 {
     	double	re[2];
     	double	im[2];
@@ -179,6 +179,18 @@ __kernel void draw(__global char *data, double m_x, double m_y, double zoom, dou
 				im[OLD] = im[NEW];
 				im[NEW] = -2.0 * fabs(re[OLD]) * im[OLD] + c_im;
 				re[NEW] = fabs(re[OLD] * re[OLD] - im[OLD] * im[OLD]) + c_re;
+			}
+		}
+		else if (type == SPIDER)
+		{
+			while (re[NEW] * re[NEW] + im[NEW] * im[NEW] < 4 && ++i < iter)
+			{
+				re[OLD] = re[NEW];
+				im[OLD] = im[NEW];
+				re[NEW] = re[OLD] * re[OLD] - im[OLD] * im[OLD] + c_re;
+				im[NEW] = 2.0 * re[OLD] * im[OLD] + c_im;
+				c_im = c_im / 2 + im[NEW];
+				c_re = c_re / 2 + re[NEW];
 			}
 		}
     	if (i < iter)

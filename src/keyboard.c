@@ -38,7 +38,7 @@ void		change_fractol(int key, t_fractol *f)
 {
 	if (key == RIGHT_ARR)
 	{
-		if (f->type == CEL_PER)
+		if (f->type == SPIDER)
 			f->type = MAND;
 		else
 			++f->type;
@@ -46,7 +46,7 @@ void		change_fractol(int key, t_fractol *f)
 	else if (key == LEFT_ARR)
 	{
 		if (f->type == MAND)
-			f->type = CEL_PER;
+			f->type = SPIDER;
 		else
 			--f->type;
 	}

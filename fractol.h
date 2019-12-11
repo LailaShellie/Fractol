@@ -52,6 +52,7 @@
 # define CEL_MAN 6
 # define CEL_MANBAR 7
 # define CEL_PER 8
+# define SPIDER 9
 
 # define CL_ERROR 0
 # define STD_ERROR 1

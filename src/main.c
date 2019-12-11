@@ -24,6 +24,7 @@ void		exit_with_usage(t_fractol *f)
 	ft_putendl("\tCeltic Mandelbrot:\t6");
 	ft_putendl("\tCeltic Mandelbar:\t7");
 	ft_putendl("\tCeltic Perpendicular:\t8");
+	ft_putendl("\tSpider:\t\t\t9");
 	exit(0);
 }
 
@@ -57,6 +58,8 @@ void		manage_input(int argc, char **argv, t_fractol *f)
 			f->type = CEL_MANBAR;
 		else if (ft_atoi(argv[1]) == CEL_PER)
 			f->type = CEL_PER;
+		else if (ft_atoi(argv[1]) == SPIDER)
+			f->type = SPIDER;
 		else
 			exit_with_usage(f);
 	}

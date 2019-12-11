@@ -64,8 +64,8 @@ int			mouse_press(int key, int x, int y, t_fractol *f)
 
 void		set_julia(int x, int y, t_fractol *f)
 {
-	f->ms_x = ((double) x - (double) WIDTH / 2) * 0.002;
-	f->ms_y = ((double) y - (double) HEIGHT / 2) * 0.002;
+	f->ms_x = ((double)x - (double)WIDTH / 2) * 0.002;
+	f->ms_y = ((double)y - (double)HEIGHT / 2) * 0.002;
 }
 
 int			mouse_move(int x, int y, t_fractol *f)
@@ -83,8 +83,8 @@ int			mouse_move(int x, int y, t_fractol *f)
 				f->m_xx = x;
 				f->m_yy = y;
 			}
+			draw(f);
 		}
-		draw(f);
 	}
 	return (0);
 }
