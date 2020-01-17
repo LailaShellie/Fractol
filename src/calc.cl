@@ -42,7 +42,7 @@ int		set_colors(unsigned char o, unsigned char r, \
 	return (res);
 }
 
-int 		choose_color(int i, int max, color)
+int 		choose_color(int i, int max, int color)
 {
 	int			red;
 	int			blue;
@@ -51,34 +51,18 @@ int 		choose_color(int i, int max, color)
 	int			s = 100;
 
 	n = (double)i / (double)max;
+	red = (int)(9 * (1 - n) * pow(n, 3) * 255);
+	green = (int)(15 * pow((1 - n), 2) * pow(n, 2) * 255);
+	blue = (int)(8.5 * pow((1 - n), 3) * n * 255);
 	if (color == 1)
-	{
-		red = (int)(9 * (1 - n) * pow(n, 3) * 255);
-		green = (int)(15 * pow((1 - n), 2) * pow(n, 2) * 255);
-		blue = (int)(8.5 * pow((1 - n), 3) * n * 255);
 		return (set_colors(0, red, blue, green));
-	}
 	else if (color == 0)
-	{
-		red = (int)(9 * (1 - n) * pow(n, 3) * 255);
-		green = (int)(15 * pow((1 - n), 2) * pow(n, 2) * 255);
-		blue = (int)(8.5 * pow((1 - n), 3) * n * 255);
 		return (set_colors(0, blue, green, red));
-	}
 	else if (color == 2)
-	{
-		red = (int)(9 * (1 - n) * pow(n, 3) * 255);
-		green = (int)(15 * pow((1 - n), 2) * pow(n, 2) * 255);
-		blue = (int)(8.5 * pow((1 - n), 3) * n * 255);
 		return (set_colors(0, blue, red, green));
-	}
 	else if (color == 3)
-	{
-		red = (int)(9 * (1 - n) * pow(n, 3) * 255);
-		green = (int)(15 * pow((1 - n), 2) * pow(n, 2) * 255);
-		blue = (int)(8.5 * pow((1 - n), 3) * n * 255);
 		return (set_colors(0, red, green, blue));
-	}
+	return (0);
 }
 
 __kernel void draw(__global char *data, double m_x, double m_y, double zoom,
