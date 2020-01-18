@@ -7,6 +7,6 @@
 Compile only on **OS X**
 Use `make` and run with `./fractol`
 #### Mandelbrot set
-![Example](https://github.com/LailaShellie/Fractol/blob/master/gif/Mand.gif)
+![Example](https://github.com/LailaShellie/gifs/blob/master/gif_fractol/Mand.gif)
 #### Julia
-![Example](https://github.com/LailaShellie/Fractol/blob/master/gif/Julia.gif)
+![Example](https://github.com/LailaShellie/gifs/blob/master/gif_fractol/Julia.gif)

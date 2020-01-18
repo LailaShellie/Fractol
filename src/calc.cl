@@ -15,31 +15,7 @@
 int		set_colors(unsigned char o, unsigned char r, \
 			unsigned char g, unsigned char b)
 {
-	int i;
-	int tmp;
-	int res;
-	int j;
-
-	i = 0;
-	res = 0;
-	tmp = 0;
-	j = 0;
-	while (i <= 31)
-	{
-		tmp = (i >= 0 && i <= 7) ? b : tmp;
-		tmp = (i >= 8 && i <= 15) ? g : tmp;
-		tmp = (i >= 16 && i <= 23) ? r : tmp;
-		tmp = (i >= 24 && i <= 31) ? o : tmp;
-		j = 0;
-		while (j <= 7)
-		{
-			if (tmp & (1 << j))
-				res |= 1 << i;
-			++i;
-			++j;
-		}
-	}
-	return (res);
+	return ((int)o << 24 | (int)r << 16 | (int)g << 8 | (int)b);
 }
 
 int 		choose_color(int i, int max, int color)
